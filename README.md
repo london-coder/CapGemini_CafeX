@@ -15,7 +15,7 @@ Use Scala or Java
 Take 30 - 45 minutes
 Use Git and tag commits (e.g. after step 1)
 ```
-Complete the steps in order.  Don’t read ahead.  At each step build the simplest possible 
+Complete the steps in order.  Don’t read ahead. At each step build the simplest possible 
 solution which meets our requirement.  Tag a git commit after each step so that your approach 
 is clear.
 ```

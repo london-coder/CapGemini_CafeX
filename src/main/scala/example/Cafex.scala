@@ -23,9 +23,12 @@ trait Menu {
   def total(items: Seq[String]): Double = {
     val price = cost(items)
     val (food, hot) = containsFood(items)
-    if( food && hot ) serviceCharge(price, 0.2D)
-    else if ( food ) serviceCharge(price, 0.1D)
-    else price
+
+    (food, hot) match {
+      case (true, true) => serviceCharge(price, 0.2D)
+      case (true, _) => serviceCharge(price, 0.1D)
+      case _ => price
+    }
   }
 
   def containsFood(items: Seq[String]): (Boolean, Boolean) = {
