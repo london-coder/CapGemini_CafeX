@@ -11,6 +11,10 @@ class CafexStep2Spec extends FlatSpec with Matchers {
     Cafex.cost(List("Cola", "Cola", "Coffee")) shouldEqual 2.0
   }
 
+  "Hot and cold drink" should "not incur service charge" in {
+    Cafex.total(List("Cola", "Coffee")) shouldEqual 1.5
+  }
+
   "Order for food" should "be true for a sandwich" in {
     val (food, _) = Cafex.containsFood(List("Steak Sandwich")) 
     food shouldEqual true
@@ -40,34 +44,7 @@ class CafexStep2Spec extends FlatSpec with Matchers {
   }
 
   "Large order including hot food " should "incur service charge capped at 20.0" in {
-    val largeOrder = List(  // 26 steak sandwiches ==117 pounds and 20% service charge would be 23.40
-      "Steak Sandwich",
-      "Steak Sandwich", 
-      "Steak Sandwich",
-      "Steak Sandwich", 
-      "Steak Sandwich",
-      "Steak Sandwich", 
-      "Steak Sandwich",
-      "Steak Sandwich", 
-      "Steak Sandwich",
-      "Steak Sandwich", 
-      "Steak Sandwich",
-      "Steak Sandwich", 
-      "Steak Sandwich",
-      "Steak Sandwich", 
-      "Steak Sandwich",
-      "Steak Sandwich", 
-      "Steak Sandwich",
-      "Steak Sandwich", 
-      "Steak Sandwich",
-      "Steak Sandwich", 
-      "Steak Sandwich",
-      "Steak Sandwich", 
-      "Steak Sandwich",
-      "Steak Sandwich", 
-      "Steak Sandwich",
-      "Steak Sandwich", 
-    )
+    val largeOrder = List.fill(26)( "Steak Sandwich" )
 
     Cafex.total(largeOrder) shouldEqual BigDecimal(137.00) // 2 decimal places
   }
