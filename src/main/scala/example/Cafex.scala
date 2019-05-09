@@ -21,7 +21,6 @@ trait Menu {
   def total(items: Seq[String]): Double = {
     val price = cost(items)
     val (food, hot) = containsFood(items)
-    println(s"in TOTAL  $items include food = $food and temp of food is $hot")
     if( food && hot ) serviceCharge(price, 0.2D)
     else if ( food ) serviceCharge(price, 0.1D)
     else price
