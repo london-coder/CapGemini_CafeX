@@ -15,7 +15,28 @@ trait Menu {
     "Steak Sandwich" -> ((4.50, true)) 
     )
 
-  def cost(items: Seq[String]): Double = {
-    items map { menu } map { _ _1 } sum
+  def cost(items: Seq[String]): Double = items map { menu } map { _ _1 } sum
+
+  // so as not to break the STEP 1 test, total is added to included service charge
+  def total(items: Seq[String]): Double = {
+    val price = cost(items)
+    val (food, hot) = containsFood(items)
+    println(s"in TOTAL  $items include food = $food and temp of food is $hot")
+    if( food && hot ) serviceCharge(price, 0.2D)
+    else if ( food ) serviceCharge(price, 0.1D)
+    else price
   }
+
+  def containsFood(items: Seq[String]): (Boolean, Boolean) = {
+    val foodItems = items filter { _.contains("Sandwich")}
+    val hot = foodItems map { menu } map { _ _2 } contains(true)
+    (foodItems.length>0, hot)
+  }
+
+  def serviceCharge(price: Double, charge: Double) : Double = {
+    val svc = price * charge
+    if(svc > 20.0) price + 20.0
+    else price + svc
+  }
+  
 }
