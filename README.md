@@ -1,7 +1,7 @@
 ## Abstract:
 This is a coding exercise for a role with Cap Gemini. The instructions are provided in a Microsoft Powerpoint slide pack.
 The instructions were taken literally, in particular in the highlighted block on slide number 3. It does not ask for an 
-application, nor a deplyable archive, it asks only for TDD, that was adhered to. The content presented in the slides is 
+application, nor a deployable archive, it asks only for TDD, that was adhered to. The content presented in the slides is 
 repeated below: 
 
 ---

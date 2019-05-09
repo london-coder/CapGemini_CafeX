@@ -1,5 +1,7 @@
 package example
 
+import scala.language.postfixOps
+
 object Cafex extends Menu {
   println("Cafe X")
 }
