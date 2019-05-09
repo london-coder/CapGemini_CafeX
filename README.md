@@ -46,3 +46,8 @@ This was approached in the manner described in the slides, i.e. as an exercise t
 application, in that it does not perform logging, nor does it perform authentication or authorisation, and is not packaged as an applicaiton. 
 Double has been used for brevity and simplicity, to make the code "production" worthy, the type should be BigDecimal with the scale set 
 to 2 and an appropriate rounding mode. Nor does the exercise consider the case of the string menu items. 
+
+The implementation language is Scala version 2.12.8, and the build tool is sbt. The project was created with an sbt giter8 template. 
+To run the code, ensure you have sbt on your computer, and clone the Git project locally. Please use the HTTPS URL as the git account makes use 
+of certificates. 
+From the project directory, in a terminal, type sbt test to see the results of the tests. 
