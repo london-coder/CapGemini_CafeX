@@ -8,7 +8,7 @@ trait Menu {
   lazy val menuSize = menu.size
   // Menu is list of items with their tuple of price 
   // and temperature attributes. e.g. hot = true or false
-  val menu = Map[String, Tuple2[Double, Boolean]](
+  val menu = Map(
     "Cola" ->((0.50, false)), 
     "Coffee" ->((1.0, true)), 
     "Cheese Sandwich" -> ((2.0, false)), 
