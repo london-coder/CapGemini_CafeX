@@ -11,7 +11,11 @@ trait Menu {
   val menu = Map[String, Tuple2[Double, Boolean]](
     "Cola" ->((0.50, false)), 
     "Coffee" ->((1.0, true)), 
-    "Chees Sandwich" -> ((2.0, false)), 
+    "Cheese Sandwich" -> ((2.0, false)), 
     "Steak Sandwich" -> ((4.50, true)) 
     )
+
+  def cost(items: Seq[String]): Double = {
+    items map { menu } map { _ _1 } sum
+  }
 }
