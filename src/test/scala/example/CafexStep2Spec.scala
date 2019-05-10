@@ -34,12 +34,12 @@ class CafexStep2Spec extends FlatSpec with Matchers {
     Cafex.total(List("Cheese Sandwich")) shouldEqual 2.20
   }
 
-  "Order for cold food and drink" should "incur 10% service charge" in {
+  "Order for cold food and hot drink" should "incur 10% service charge" in {
     Cafex.total(List("Coffee", "Cheese Sandwich")) shouldEqual 3.30
   }
 
-  "Order for hot food" should "incur 20% service charge" in {
-    Cafex.total(List("Steak Sandwich")) shouldEqual 5.40
+  "Order for hot food with drink" should "incur 20% service charge" in {
+    Cafex.total(List("Steak Sandwich", "Cola")) shouldEqual 6.00
   }
 
   "Large order including hot food " should "incur service charge capped at 20.0" in {
