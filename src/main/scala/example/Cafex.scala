@@ -15,7 +15,7 @@ trait Menu {
     "Coffee" ->((1.0, true)), 
     "Cheese Sandwich" -> ((2.0, false)), 
     "Steak Sandwich" -> ((4.50, true)) 
-    )
+    ).withDefaultValue((0.0, false))
 
   def cost(items: Seq[String]): Double = items map { menu } map { _ _1 } sum
 
@@ -34,13 +34,12 @@ trait Menu {
   def containsFood(items: Seq[String]): (Boolean, Boolean) = {
     val foodItems = items filter { _.contains("Sandwich")}
     val hot = foodItems map { menu } map { _ _2 } contains(true)
-    (foodItems.length>0, hot)
+    (foodItems.length > 0, hot)
   }
 
   def serviceCharge(price: Double, charge: Double) : Double = {
-    val svc = price * charge
-    if(svc > 20.0) price + 20.0
-    else price + svc
+    val svc = price * charge min(20.0)
+    price + svc
   }
   
 }

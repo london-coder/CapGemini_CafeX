@@ -44,4 +44,14 @@ class CafexStep2Spec extends FlatSpec with Matchers {
     total(largeOrder) shouldEqual BigDecimal(137.00) // 2 decimal places
   }
 
+  /* negative case for item not in menu
+   * this test case is not a requirement
+   */
+  "Order for non-menu item" should "cost 0" in {
+    total(List("Pie")) shouldEqual 0.0
+  }
+  
+  "Order that includes non-menu item" should "sum to the cost of only menu items with service charge" in {
+    total(List("Coffee", "Cheese Sandwich", "Pie")) shouldEqual 3.30
+  }
 }
