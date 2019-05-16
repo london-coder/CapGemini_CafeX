@@ -15,4 +15,7 @@ class CafexStep1Spec extends FlatSpec with Matchers {
     cost(List("Cola", "Coffee", "Cheese Sandwich")) shouldEqual 3.5
   }
 
+  "The cost of a pie" should "be 0 as it's not a menu item" in {
+    cost(List("Pie")) shouldEqual 0.0
+  }
 }
