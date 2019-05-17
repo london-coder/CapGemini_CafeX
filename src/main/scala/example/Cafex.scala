@@ -11,10 +11,10 @@ trait Menu {
   // Menu is list of items with their tuple of price 
   // and temperature attributes. e.g. hot = true or false
   val menu = Map(
-    "Cola" ->((0.50, false)), 
-    "Coffee" ->((1.0, true)), 
-    "Cheese Sandwich" -> ((2.0, false)), 
-    "Steak Sandwich" -> ((4.50, true)) 
+    "Cola" ->((0.50, false)),
+    "Coffee" ->((1.0, true)),
+    "Cheese Sandwich" -> ((2.0, false)),
+    "Steak Sandwich" -> ((4.50, true))
     ).withDefaultValue((0.0, false))
 
   def cost(items: Seq[String]): Double = items map { menu } map { _ _1 } sum
